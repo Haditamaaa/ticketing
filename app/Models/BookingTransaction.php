@@ -23,7 +23,7 @@ class BookingTransaction extends Model
         'booking_trx_id',
         'proof',
         'quantity',
-        'total_amout',
+        'total_amount',
         'is_paid',
         'workshop_id',
     ];
