@@ -31,7 +31,7 @@ class Workshop extends Model
         'workshop_instructor_id',
     ];
 
-    protected $cast = [
+    protected $casts = [
         'started_at' => 'date',
         'time_at' => 'datetime:H:i'
     ];
