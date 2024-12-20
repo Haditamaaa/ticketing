@@ -1,33 +1,8 @@
 @extends('layouts.app')
+@section('title', 'Aktiv Workshop Offline')
 @section('content')
     <div class="h-[112px]">
-        <nav class="fixed top-0 flex items-center w-full justify-between p-8 bg-white z-30">
-            <a href="index.html">
-                <img src="{{ asset('assets/images/logos/Logo.svg') }}" class="flex shrink-0" alt="logo">
-            </a>
-            <ul class="flex items-center justify-center gap-8">
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="view-booking.html">View My Booking</a>
-                </li>
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="">Workshop</a>
-                </li>
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="">Community</a>
-                </li>
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="">Testimony</a>
-                </li>
-            </ul>
-            <a href="#" class="flex items-center rounded-full h-12 px-6 gap-[10px] w-fit shrink-0 bg-aktiv-green">
-                <span class="font-semibold text-white">Contact CS</span>
-                <img src="{{ asset('assets/images/icons/whatsapp.svg') }}" class="w-6 h-6" alt="icon">
-            </a>
-        </nav>
+        <x-nav />
     </div>
     <header class="flex flex-col w-full max-h-[1210px] bg-[linear-gradient(0deg,_#5B8CE9_0%,_#4EB6F5_100%)] -mb-[128px]">
         <div class="flex flex-col items-center gap-6 mt-20">
@@ -89,7 +64,7 @@
             </div>
             <div class="grid grid-cols-4 gap-6">
                 @forelse ($categories as $itemCategory)
-                    <a href="category.html" class="card">
+                    <a href="{{ route('front.category', $itemCategory->slug) }}" class="card">
                         <div class="flex items-center h-full rounded-3xl p-5 pr-1 gap-3 bg-white">
                             <img src="{{ Storage::url($itemCategory->icon) }}" class="w-[56px] h-[56px] flex shrink-0"
                                 alt="icon">
@@ -135,8 +110,7 @@
                                             {{ $itemNewWorkshop->instructor->occupation }}</p>
                                     </div>
                                 </div>
-                                <div
-                                    class="thumbnail-container relative h-[200px] rounded-xl bg-[#D9D9D9] overflow-hidden">
+                                <div class="thumbnail-container relative h-[200px] rounded-xl bg-[#D9D9D9] overflow-hidden">
                                     <img src="{{ Storage::url($itemNewWorkshop->thumbnail) }}"
                                         class="w-full h-full object-cover" alt="thumbnail">
                                     @if ($itemNewWorkshop->is_open)

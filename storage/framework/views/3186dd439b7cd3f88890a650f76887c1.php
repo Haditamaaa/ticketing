@@ -1,33 +1,27 @@
 
+<?php $__env->startSection('title', 'Aktiv Workshop Offline'); ?>
 <?php $__env->startSection('content'); ?>
     <div class="h-[112px]">
-        <nav class="fixed top-0 flex items-center w-full justify-between p-8 bg-white z-30">
-            <a href="index.html">
-                <img src="<?php echo e(asset('assets/images/logos/Logo.svg')); ?>" class="flex shrink-0" alt="logo">
-            </a>
-            <ul class="flex items-center justify-center gap-8">
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="view-booking.html">View My Booking</a>
-                </li>
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="">Workshop</a>
-                </li>
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="">Community</a>
-                </li>
-                <li
-                    class="font-medium text-aktiv-grey hover:font-semibold hover:text-aktiv-orange transition-all duration-300">
-                    <a href="">Testimony</a>
-                </li>
-            </ul>
-            <a href="#" class="flex items-center rounded-full h-12 px-6 gap-[10px] w-fit shrink-0 bg-aktiv-green">
-                <span class="font-semibold text-white">Contact CS</span>
-                <img src="<?php echo e(asset('assets/images/icons/whatsapp.svg')); ?>" class="w-6 h-6" alt="icon">
-            </a>
-        </nav>
+        <?php if (isset($component)) { $__componentOriginalff09156f73c896030ee75284e9b2c466 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalff09156f73c896030ee75284e9b2c466 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.nav','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('nav'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalff09156f73c896030ee75284e9b2c466)): ?>
+<?php $attributes = $__attributesOriginalff09156f73c896030ee75284e9b2c466; ?>
+<?php unset($__attributesOriginalff09156f73c896030ee75284e9b2c466); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalff09156f73c896030ee75284e9b2c466)): ?>
+<?php $component = $__componentOriginalff09156f73c896030ee75284e9b2c466; ?>
+<?php unset($__componentOriginalff09156f73c896030ee75284e9b2c466); ?>
+<?php endif; ?>
     </div>
     <header class="flex flex-col w-full max-h-[1210px] bg-[linear-gradient(0deg,_#5B8CE9_0%,_#4EB6F5_100%)] -mb-[128px]">
         <div class="flex flex-col items-center gap-6 mt-20">
@@ -89,7 +83,7 @@
             </div>
             <div class="grid grid-cols-4 gap-6">
                 <?php $__empty_1 = true; $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $itemCategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                    <a href="category.html" class="card">
+                    <a href="<?php echo e(route('front.category', $itemCategory->slug)); ?>" class="card">
                         <div class="flex items-center h-full rounded-3xl p-5 pr-1 gap-3 bg-white">
                             <img src="<?php echo e(Storage::url($itemCategory->icon)); ?>" class="w-[56px] h-[56px] flex shrink-0"
                                 alt="icon">
