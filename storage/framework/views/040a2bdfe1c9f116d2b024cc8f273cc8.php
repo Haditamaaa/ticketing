@@ -100,7 +100,8 @@
                                     class="flex items-center justify-between rounded-2xl border border-[#E6E7EB] p-5 gap-4 bg-white">
                                     <div class="flex flex-col gap-2">
                                         <p class="font-medium text-aktiv-grey">Start from</p>
-                                        <p class="font-semibold text-lg leading-[27px]"><?php echo e($workshop->time_at->format('h:i A')); ?></p>
+                                        <p class="font-semibold text-lg leading-[27px]">
+                                            <?php echo e($workshop->time_at->format('h:i A')); ?></p>
                                     </div>
                                     <img src="<?php echo e(asset('assets/images/icons/Duration.png')); ?>"
                                         class="w-16 h-16 flex shrink-0" alt="icon">
@@ -109,7 +110,8 @@
                                     class="flex items-center justify-between rounded-2xl border border-[#E6E7EB] p-5 gap-4 bg-white">
                                     <div class="flex flex-col gap-2">
                                         <p class="font-medium text-aktiv-grey">Kick off date</p>
-                                        <p class="font-semibold text-lg leading-[27px]"><?php echo e($workshop->started_at->format('M d, Y')); ?></p>
+                                        <p class="font-semibold text-lg leading-[27px]">
+                                            <?php echo e($workshop->started_at->format('M d, Y')); ?></p>
                                     </div>
                                     <img src="<?php echo e(asset('assets/images/icons/Kick off date.png')); ?>"
                                         class="w-16 h-16 flex shrink-0" alt="icon">
@@ -138,12 +140,14 @@
                                         class="w-full h-full object-cover" alt="location">
                                 </div>
                                 <div class="flex flex-col gap-3 justify-between">
-                                    <p class="font-medium leading-[25.6px] text-aktiv-grey line-clamp-4"><?php echo e($workshop->address); ?></p>
-                                    <a href="https://www.google.com/maps/place/<?php echo e($workshop->address); ?>" class="font-semibold text-aktiv-orange">View in Google Maps</a>
+                                    <p class="font-medium leading-[25.6px] text-aktiv-grey line-clamp-4">
+                                        <?php echo e($workshop->address); ?></p>
+                                    <a href="https://www.google.com/maps/place/<?php echo e($workshop->address); ?>"
+                                        class="font-semibold text-aktiv-orange">View in Google Maps</a>
                                 </div>
                             </div>
-                            <img src="<?php echo e(Storage::url($workshop->bg_map)); ?>"
-                                class="w-full h-full object-cover" alt="maps">
+                            <img src="<?php echo e(Storage::url($workshop->bg_map)); ?>" class="w-full h-full object-cover"
+                                alt="maps">
                         </div>
                     </div>
                 </section>
@@ -176,7 +180,8 @@
                             class="flex items-center justify-between mx-8 rounded-2xl border border-r-2 border-b-2 border-[#E6E7EB] py-4 px-6 gap-2">
                             <div class="flex flex-col gap-1">
                                 <p class="font-medium text-aktiv-grey">Total Attendants:</p>
-                                <p class="font-semibold text-lg leading-[27px]"><?php echo e($workshop->participants->count()); ?> Has People Joined</p>
+                                <p class="font-semibold text-lg leading-[27px]"><?php echo e($workshop->participants->count()); ?> Has
+                                    People Joined</p>
                             </div>
                             <img src="<?php echo e(asset('assets/images/icons/user-2.svg')); ?>" class="w-[56px] h-[56px]"
                                 alt="icon">
@@ -185,20 +190,18 @@
                             <h2 class="font-Neue-Plak-bold text-xl leading-[27.5px]">This workshop will teach</h2>
                             <div class="flex flex-col gap-6">
                                 <?php $__empty_1 = true; $__currentLoopData = $workshop->benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $itemBenefit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-    
                                     <div class="flex items-center gap-2">
                                         <img src="<?php echo e(asset('assets/images/icons/tick-circle.svg')); ?>"
                                             class="w-6 h-6 flex shrink-0" alt="icon">
                                         <p class="font-semibold text-lg leading-[27px]"><?php echo e($itemBenefit->name); ?></p>
                                     </div>
-                                    
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                     <p>belum ada data benefits</p>
                                 <?php endif; ?>
                             </div>
                         </div>
                         <div class="flex flex-col">
-                            <a href="booking.html"
+                            <a href="<?php echo e(route('front.booking', $workshop->slug)); ?>"
                                 class="flex items-center justify-center mx-8 h-16 rounded-xl px-6 gap-[10px] bg-aktiv-orange font-semibold text-lg leading-[27px] text-white mb-8">Join
                                 Workshop</a>
                         </div>

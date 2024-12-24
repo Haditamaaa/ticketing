@@ -129,8 +129,7 @@
                                             <?php echo e($itemNewWorkshop->instructor->occupation); ?></p>
                                     </div>
                                 </div>
-                                <div
-                                    class="thumbnail-container relative h-[200px] rounded-xl bg-[#D9D9D9] overflow-hidden">
+                                <div class="thumbnail-container relative h-[200px] rounded-xl bg-[#D9D9D9] overflow-hidden">
                                     <img src="<?php echo e(Storage::url($itemNewWorkshop->thumbnail)); ?>"
                                         class="w-full h-full object-cover" alt="thumbnail">
                                     <?php if($itemNewWorkshop->is_open): ?>

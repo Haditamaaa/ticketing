@@ -47,6 +47,8 @@ class BookingController extends Controller
 
         $data = $this->bookingService->getBookingDetails();
 
+        dd($data);
+
         if (!$data) {
             return redirect()->route('front.index');;
         }
