@@ -7623,3 +7623,12 @@
 #57 C:\\laragon\\www\\ticketing\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\laragon\\\\www\\\\...')
 #58 {main}
 "} 
+[2024-12-27 02:54:47] local.WARNING: Tidak ada data pemesanan ditemukan di sesi.  
+[2024-12-27 02:54:47] local.ERROR: Tidak ada detail pemesanan yang ditemukan untuk sesi saat ini.  
+[2024-12-27 02:58:21] local.WARNING: Tidak ada data pemesanan ditemukan di sesi.  
+[2024-12-27 02:58:21] local.ERROR: Tidak ada detail pemesanan yang ditemukan untuk sesi saat ini.  
+[2024-12-27 03:08:57] local.WARNING: Tidak ada data pemesanan ditemukan di sesi.  
+[2024-12-27 03:09:39] local.WARNING: Tidak ada data pemesanan ditemukan di sesi.  
+[2024-12-27 03:21:20] local.WARNING: Tidak ada data pemesanan ditemukan di sesi.  
+[2024-12-27 03:22:08] local.WARNING: Tidak ada data pemesanan ditemukan di sesi.  
+[2024-12-27 03:22:08] local.ERROR: Tidak ada detail pemesanan yang ditemukan untuk sesi saat ini.  

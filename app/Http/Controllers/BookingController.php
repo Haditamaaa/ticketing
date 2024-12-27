@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Workshop;
-use Illuminate\Http\Request;
 use App\Services\BookingService;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreBookingRequest;
@@ -47,9 +46,9 @@ class BookingController extends Controller
 
         $data = $this->bookingService->getBookingDetails();
 
-        dd($data);
-
         if (!$data) {
+            Log::error('Tidak ada detail pemesanan yang ditemukan untuk sesi saat ini.');
+
             return redirect()->route('front.index');;
         }
 

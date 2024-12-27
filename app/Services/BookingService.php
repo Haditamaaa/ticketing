@@ -20,15 +20,15 @@ class BookingService
         $this->workshopRepository = $workshopRepository;
     }
 
-    public function storeBooking(array $validateData)
+    public function storeBooking(array $validatedData)
     {
         $existingData = $this->bookingRepository->getOrderDataFromSession();
 
-        $updateData = array_merge($existingData, $validateData);
+        $updatedData = array_merge($existingData, $validatedData);
 
-        $this->bookingRepository->saveToSession($updateData);
+        $this->bookingRepository->saveToSession($updatedData);
 
-        return $updateData;
+        return $updatedData;
     }
 
     public function isBookingSessionAvailable()
@@ -41,6 +41,7 @@ class BookingService
         $orderData = $this->bookingRepository->getOrderDataFromSession();
 
         if (empty($orderData)) {
+            Log::warning('Tidak ada data pemesanan ditemukan di sesi.');
             return null;
         }
 
