@@ -46,6 +46,8 @@ class BookingController extends Controller
 
         $data = $this->bookingService->getBookingDetails();
 
+        // dd($data);
+
         if (!$data) {
             Log::error('Tidak ada detail pemesanan yang ditemukan untuk sesi saat ini.');
 
@@ -61,10 +63,10 @@ class BookingController extends Controller
 
         try {
             $bookingTransactionId = $this->bookingService->finalizeBookingAndPayment($validated);
-            return redirect()->route('front.booking.finishedd', $bookingTransactionId);
+            return redirect()->route('front.booking_finished', $bookingTransactionId);
         } catch (\Exception $e) {
             Log::error('Payment storage failed: ' . $e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Unable store payment Detail. Please Try Again'] . $e->getMessage());
+            return redirect()->back()->withErrors(['error' => 'Unable store payment Detail. Please Try Again' . $e->getMessage()]);
         }
     }
 

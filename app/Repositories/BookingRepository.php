@@ -22,7 +22,7 @@ class BookingRepository implements BookingRepositoryInterface
 
     public function saveToSession(array $data)
     {
-        Session::put('OrderData', $data);
+        Session::put('orderData', $data);
     }
 
     public function getOrderDataFromSession()
