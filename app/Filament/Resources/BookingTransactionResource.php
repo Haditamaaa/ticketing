@@ -11,9 +11,10 @@ use Filament\Resources\Resource;
 use App\Models\BookingTransaction;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
-use App\Filament\Resources\BookingTransactionResource\Pages;
-use Filament\Forms\Components\ToggleButtons;
+use Filament\Notifications\Notification;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Forms\Components\ToggleButtons;
+use App\Filament\Resources\BookingTransactionResource\Pages;
 
 class BookingTransactionResource extends Resource
 {
@@ -177,6 +178,22 @@ class BookingTransactionResource extends Resource
                   ->actions([
                         Tables\Actions\ViewAction::make(),
                         Tables\Actions\EditAction::make(),
+
+                        Tables\Actions\Action::make('approve')
+                              ->label('approve')
+                              ->action(function (BookingTransaction $record) {
+                                    $record->is_paid = true;
+                                    $record->save();
+
+                                    Notification::make()
+                                          ->title('Order Approved')
+                                          ->success()
+                                          ->body('The order has been successfully approved.')
+                                          ->send();
+                              })
+                              ->color('success')
+                              ->requiresConfirmation()
+                              ->visible(fn(BookingTransaction $record) => !$record->is_paid),
                   ])
                   ->bulkActions([
                         Tables\Actions\BulkActionGroup::make([

@@ -41,7 +41,6 @@ class BookingService
         $orderData = $this->bookingRepository->getOrderDataFromSession();
 
         if (empty($orderData)) {
-            Log::warning('Tidak ada data pemesanan ditemukan di sesi.');
             return null;
         }
 
@@ -78,7 +77,7 @@ class BookingService
             throw new \Exception('Total amount is missing from the order data.');
         }
 
-        if (!isset($paymentData['proof'])) {
+        if (isset($paymentData['proof'])) {
             $proofPath = $paymentData['proof']->store('proofs', 'public');
         }
 
