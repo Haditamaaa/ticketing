@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <p class="font-medium text-aktiv-grey">Price</p>
-                                    <p class="font-semibold text-lg leading-[27px] text-right">
+                                    <p class="font-semibold text-lg leading-[27px] text-right">Rp
                                         {{ number_format($orderData['sub_total_amount'], 0, ',', '.') }}</p>
                                 </div>
                                 <div class="flex items-center justify-between">
